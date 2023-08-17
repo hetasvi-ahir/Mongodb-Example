@@ -31,21 +31,6 @@ public class GroceryController {
 		return itemRepository.findAll();
 	}
 
-	@GetMapping("/itemsById")
-	public ResponseEntity<Object> getEmployeeById(@RequestParam("name") String name) {
-		// GroceryItem item = itemRepository.findItemByName(name);
-		Optional<GroceryItem> findById = itemRepository.findById(name);
-
-		if (findById.isPresent()) {
-			GroceryItem item = findById.get();
-
-			System.out.println(item);
-			return ResponseEntity.ok().body(item);
-		}
-		return ResponseEntity.ok().body("nothing");
-
-	}
-
 	@GetMapping("/itembyname")
 	public ResponseEntity<Object> getItemsByName(@RequestParam("name") String name) {
 
